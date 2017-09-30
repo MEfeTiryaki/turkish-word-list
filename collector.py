@@ -38,3 +38,5 @@ def writeToFile(filename):
 	f.close()
 
 writeToFile("words.txt")
+
+

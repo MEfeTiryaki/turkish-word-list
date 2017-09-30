@@ -38,7 +38,7 @@ def fiterTuremis(W,S):
 		for s in S:
 			if w[-len(s):]==s:
 				if len(w)-len(s)>=2:		
-					with open("turemis/"+s+".txt", "a") as myfile:
+					with open("compound_words/"+s+".txt", "a") as myfile:
 	   					myfile.write(w+"\n")
 					temp.append(w)
 	for t in temp:
@@ -57,20 +57,20 @@ def appendFile(filename,W):
 
 def deleteTuremis(S):
     for s in S:
-    	with open("turemis/"+s+".txt", "w"):
+    	with open("compound_words/"+s+".txt", "w"):
         	pass
 
 def createEylemler():
-	mek_ = readFile('turemis/mek.txt')
-	mak_ = readFile('turemis/mak.txt')
-	eylemler  = []
+	mek_ = readFile('compound_words/mek.txt')
+	mak_ = readFile('compound_words/mak.txt')
+	verbs  = []
 	
 	for v in mek_:
-		eylemler.append(v[:-3])
+		verbs.append(v[:-3])
 	for v in mak_:
-		eylemler.append(v[:-3])
+		verbs.append(v[:-3])
 	
-	writeFile("eylemler.txt",eylemler)
+	writeFile("verbs.txt",verbs)
 	
 
 words = []
@@ -78,8 +78,8 @@ subfices = []
 roots = []
 
 start = time.time()
-words = readFile('words.txt')
-subfices = readFile('ekler.txt') 
+words = readFile('data/words.txt')
+subfices = readFile('data/subfices.txt') 
 deleteTuremis(subfices)
 
 # Filter out
